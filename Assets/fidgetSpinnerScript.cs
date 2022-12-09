@@ -55,6 +55,11 @@ public class fidgetSpinnerScript : MonoBehaviour
     {
         if (command.EqualsIgnoreCase("spin"))
         {
+			if (!active)
+			{
+				yield return "sendtochaterror The fidget spinner cannot be clicked right now!";
+				yield break;
+			}
             yield return null;
             while (needy.GetNeedyTimeRemaining() < 40)
             {

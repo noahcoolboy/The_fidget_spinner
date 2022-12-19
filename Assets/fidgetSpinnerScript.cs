@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using KModkit;
 public class fidgetSpinnerScript : MonoBehaviour
 {
     public KMNeedyModule needy;
@@ -24,7 +22,6 @@ public class fidgetSpinnerScript : MonoBehaviour
         {
             transform.Rotate(Vector3.up * needy.GetNeedyTimeRemaining());
         }
-
     }
     void activation()
     {
@@ -47,7 +44,48 @@ public class fidgetSpinnerScript : MonoBehaviour
 
         if ((needy.GetNeedyTimeRemaining() < 40))
             needy.SetNeedyTimeRemaining(needy.GetNeedyTimeRemaining() + 2);
-        Debug.Log(needy.CountdownTime);
         return false;
+    }
+
+    //twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} spin [Clicks the fidget spinner until the timer maxes out]";
+    #pragma warning restore 414
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        if (command.EqualsIgnoreCase("spin"))
+        {
+            if (!active)
+            {
+                yield return "sendtochaterror The fidget spinner cannot be clicked right now!";
+                yield break;
+            }
+            yield return null;
+            while (needy.GetNeedyTimeRemaining() < 40)
+            {
+                spinner.OnInteract();
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+    }
+
+    void TwitchHandleForcedSolve()
+    {
+        StartCoroutine(DealWithNeedy());
+    }
+
+    private IEnumerator DealWithNeedy()
+    {
+        while (!active) yield return null;
+        while (active)
+        {
+            if (needy.GetNeedyTimeRemaining() < 40)
+            {
+                spinner.OnInteract();
+                yield return new WaitForSeconds(.1f);
+            }
+            else
+                yield return null;
+        }
     }
 }

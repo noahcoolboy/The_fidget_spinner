@@ -20,7 +20,7 @@ public class fidgetSpinnerScript : MonoBehaviour
     {
         if (active)
         {
-            transform.Rotate(Vector3.up * needy.GetNeedyTimeRemaining());
+            spinner.transform.Rotate(Vector3.up * needy.GetNeedyTimeRemaining());
         }
     }
     void activation()

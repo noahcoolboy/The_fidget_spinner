@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 114465375344892426}
   - component: {fileID: 95822650469364680}
   - component: {fileID: 114376997470051790}
+  - component: {fileID: 114683584025443012}
   m_Layer: 0
   m_Name: temaplate
   m_TagString: Untagged
@@ -135,7 +136,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4508645296345416}
   - component: {fileID: 95182429250897410}
-  - component: {fileID: 114322784085061536}
   - component: {fileID: 114839771627181274}
   m_Layer: 0
   m_Name: Spinner
@@ -408,19 +408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &114322784085061536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1672855356414502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ded79a4c2e55224a8d150d2d69637cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needy: {fileID: 114566589169117162}
-  spinner: {fileID: 114839771627181274}
 --- !u!114 &114376997470051790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,6 +471,19 @@ MonoBehaviour:
   ModuleDisplayName: The Fidget Spinner
   RequiresTimerVisibility: 0
   WarnAtFiveSeconds: 1
+--- !u!114 &114683584025443012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289473866510258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ded79a4c2e55224a8d150d2d69637cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needy: {fileID: 114566589169117162}
+  spinner: {fileID: 114839771627181274}
 --- !u!114 &114798878878763998
 MonoBehaviour:
   m_ObjectHideFlags: 1
